@@ -9,4 +9,4 @@ include(':client')
 project(':client').projectDir = new File('client-workspace/projects/client')
 
 
-include('test')
+include('server-java-api')

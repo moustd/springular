@@ -60,9 +60,6 @@ task prepareLibForDistribution(type: Copy, dependsOn: bootJar) {
 distZip.dependsOn(prepareLibForDistribution)
 
 task swaggerCodegenTypescript(type: JavaExec) {
-    onlyIf {
-        file('../client-workspace/projects/lib-server-api/').exists() && file('../client-workspace/projects/lib-server-api/').listFiles().length == 0
-    }
     classpath configurations.swaggerCodegen
     args 'generate',
             '-l', 'typescript-angular',
@@ -72,9 +69,6 @@ task swaggerCodegenTypescript(type: JavaExec) {
 }
 
 task swaggerCodegenJava(type: JavaExec) {
-    onlyIf {
-        file('../server-java-api/').exists() && file('../server-java-api/').listFiles().length == 0
-    }
     classpath configurations.swaggerCodegen
     args 'generate',
             '-l', 'java',

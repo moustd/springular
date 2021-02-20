@@ -3,26 +3,35 @@ info:
   title: OpenAPI definition
   version: v0
 servers:
-  - url: http://localhost:8080
-    description: Generated server url
+- url: http://localhost:8080
+  description: Generated server url
 paths:
-  /greeting:
+  /api/greeting:
     get:
       tags:
-        - greeting-controller
+      - greeting-controller
       operationId: greeting
       parameters:
-        - name: name
-          in: query
-          required: false
-          schema:
-            type: string
-            default: World
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+          default: World
       responses:
         "200":
           description: OK
           content:
             '*/*':
               schema:
-                type: string
-components: { }
+                $ref: '#/components/schemas/Greeting'
+components:
+  schemas:
+    Greeting:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        content:
+          type: string
