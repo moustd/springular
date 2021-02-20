@@ -1,0 +1,25 @@
+apply plugin: 'base'
+
+configurations {
+    swaggerCodegen
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    swaggerCodegen group: 'io.swagger.codegen.v3', name: 'swagger-codegen-cli', version: '3.0.24'
+}
+
+task swaggerCodegen(type: JavaExec) {
+    onlyIf {
+        file('').exists() && file('').listFiles().length == 0
+    }
+    classpath configurations.swaggerCodegen
+    args 'generate',
+            '-l', 'typescript-angular',
+            '-i', '../api-docs/server.yaml',
+            '-o', './output/',
+            '-c', './swagger-config.json'
+}

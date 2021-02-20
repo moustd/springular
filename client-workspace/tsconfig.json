@@ -19,6 +19,10 @@
       "lib-client-shared": [
         "dist/lib-client-shared/lib-client-shared",
         "dist/lib-client-shared"
+      ],
+      "lib-server-api": [
+        "dist/lib-server-api/lib-server-api",
+        "dist/lib-server-api"
       ]
     }
   },

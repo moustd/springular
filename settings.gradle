@@ -1,6 +1,12 @@
 rootProject.name = 'demo'
 
+include(':server-shared')
 include(':server')
 include(':client-workspace')
+
+//Client
 include(':client')
 project(':client').projectDir = new File('client-workspace/projects/client')
+
+
+include('test')

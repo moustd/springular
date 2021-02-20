@@ -8,6 +8,12 @@ task buildClient(type: Exec) {
 
 jar.dependsOn(buildClient)
 
+task testClient(type: Exec) {
+  commandLine 'cmd', '/c', 'ng test client'
+}
+
+test.dependsOn(buildClient)
+
 jar {
   from '../../dist/client' into 'static'
 }
