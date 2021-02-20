@@ -1,4 +1,6 @@
 rootProject.name = 'demo'
 
-include('server')
-include('client-workspace')
+include(':server')
+include(':client-workspace')
+include(':client')
+project(':client').projectDir = new File('client-workspace/projects/client')

@@ -1,0 +1,13 @@
+plugins {
+  id 'java'
+}
+
+task buildClient(type: Exec) {
+  commandLine 'cmd', '/c', 'ng build client'
+}
+
+jar.dependsOn(buildClient)
+
+jar {
+  from '../../dist/client' into 'static'
+}
