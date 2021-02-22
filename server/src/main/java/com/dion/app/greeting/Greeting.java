@@ -1,4 +1,4 @@
-package com.dion.app;
+package com.dion.app.greeting;
 
 public class Greeting {
 
